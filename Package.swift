@@ -4,23 +4,23 @@
 import PackageDescription
 
 let package = Package(
-    name: "SwiftDSALibrary",
+    name: "SwiftDSAs",
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "SwiftDSALibrary",
-            targets: ["SwiftDSALibrary"]
+            name: "SwiftDSAs",
+            targets: ["SwiftDSAs"]
         ),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "SwiftDSALibrary"
+            name: "SwiftDSAs"
         ),
         .testTarget(
-            name: "SwiftDSALibraryTests",
-            dependencies: ["SwiftDSALibrary"]
+            name: "SwiftDSAsTests",
+            dependencies: ["SwiftDSAs"]
         ),
     ]
 )
