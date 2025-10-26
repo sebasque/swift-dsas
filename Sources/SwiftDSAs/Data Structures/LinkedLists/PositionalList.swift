@@ -6,7 +6,6 @@
 //
 
 class PositionalList<T>: DoublyLinkedList<T> {
-
     enum ValidationError: Error {
         case invalidContainer
         case invalidPosition
@@ -103,14 +102,17 @@ class PositionalList<T>: DoublyLinkedList<T> {
         return makePosition(node: node)
     }
 
+    @discardableResult
     func addFirst(_ value: T) -> Position? {
         insertBetween(value, prev: header, next: header.next)
     }
 
+    @discardableResult
     func addLast(_ value: T) -> Position? {
         insertBetween(value, prev: trailer.prev, next: trailer)
     }
 
+    @discardableResult
     func addBefore(p: Position, value: T) -> Position? {
         do {
             let original = try validate(p: p)
@@ -121,6 +123,7 @@ class PositionalList<T>: DoublyLinkedList<T> {
         }
     }
 
+    @discardableResult
     func addAfter(p: Position, value: T) -> Position? {
         do {
             let original = try validate(p: p)
@@ -131,6 +134,7 @@ class PositionalList<T>: DoublyLinkedList<T> {
         }
     }
 
+    @discardableResult
     func delete(p: Position) -> T? {
         do {
             let original = try validate(p: p)
@@ -141,6 +145,7 @@ class PositionalList<T>: DoublyLinkedList<T> {
         }
     }
 
+    @discardableResult
     func replace(p: Position, value: T) -> T? {
         do {
             let original = try validate(p: p)
